@@ -1,0 +1,16 @@
+.main-body-wrapper {
+    min-height: 100vh;
+    padding-top: 45px;
+    .left-menu {
+        position: fixed;
+        width: 55px;
+        top: 45px;
+        background: #0b1741;
+        color: #fff;
+        height: calc(100vh - 45px);
+    }
+    .work-space-wrapper {
+        padding-left: 55px;
+        min-height: calc(100vh - 45px);
+    }
+}
