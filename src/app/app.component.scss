@@ -3,14 +3,21 @@
     padding-top: 45px;
     .left-menu {
         position: fixed;
-        width: 55px;
+        display: flex;
+        width: 40px;
         top: 45px;
         background: #0b1741;
         color: #fff;
         height: calc(100vh - 45px);
+        &:hover {
+            width: max-content;
+            padding-left: 10px;
+            padding-right: 10px;
+            z-index: 2;
+        }
     }
     .work-space-wrapper {
-        padding-left: 55px;
+        padding-left: 40px;
         min-height: calc(100vh - 45px);
     }
 }

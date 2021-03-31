@@ -1,4 +1,4 @@
-@import "./shared-css.scss";
+@import "./shared.scss";
 
 html,
 body {
@@ -46,3 +46,15 @@ body {
         color: #76808b;
     }
 }
+
+.mat-tree {
+    background: transparent;
+    .mat-tree-node, .mat-nested-tree-node {
+        color: white;
+    }
+    .mat-tree-node {
+        padding-right: 10px;
+    }
+}
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
