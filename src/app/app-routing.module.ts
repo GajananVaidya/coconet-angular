@@ -9,7 +9,9 @@ import {
 const routes: Routes = [
   { path: '', redirectTo: 'indent-requests', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
-  { path: 'settings', component: SettingsComponent },
+  { path: 'my-requests', redirectTo: 'indent-requests', pathMatch: 'full' },
+  { path: 'my-approval-requests', redirectTo: 'indent-requests', pathMatch: 'full' },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
   { path: 'indent-requests', component: IndentRequestListComponent, canActivate: [AuthGuard] }
 ];
 @NgModule({

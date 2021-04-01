@@ -18,9 +18,15 @@
             .mat-tree-node,
             .mat-nested-tree-node {
                 li {
+                    button {
+                        outline: none;
+                    }
                     .menu-title {
                         display: none;
                     }
+                }
+                &:focus {
+                    outline: none;
                 }
             }
         }
