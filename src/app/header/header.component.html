@@ -14,6 +14,22 @@
             </div>
         </div>
         <div class="flex1"></div>
+        <div class="user-panel">
+            <span class="user-name-title">Hi,</span> <span class="user-name">Robert Pinto</span>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="User">
+                <mat-icon>supervised_user_circle</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    <span>Settings</span>
+                </button>
+                <button (click)='logout()' mat-menu-item>
+                    <mat-icon>logout</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+        </div>
     </div>
 
 </div>

@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { IndentRequestListComponent } from './indent-request-list/indent-request-list.component';
-
+import { LoginFormComponent } from './login';
+import {
+  AuthGuardService as AuthGuard
+} from './service';
 const routes: Routes = [
   { path: '', redirectTo: 'indent-requests', pathMatch: 'full' },
-  { path: 'indent-requests', component: IndentRequestListComponent },
+  { path: 'login', component: LoginFormComponent },
+  { path: 'indent-requests', component: IndentRequestListComponent, canActivate: [AuthGuard] }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
