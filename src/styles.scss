@@ -49,12 +49,13 @@ body {
 
 .mat-tree {
     background: transparent;
-    .mat-tree-node, .mat-nested-tree-node {
+    .mat-tree-node,
+    .mat-nested-tree-node {
         color: white;
     }
-    .mat-tree-node {
-        padding-right: 10px;
-    }
+    // .mat-tree-node {
+    //     padding-right: 10px;
+    // }
 }
 
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

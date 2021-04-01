@@ -1,5 +1,5 @@
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 interface LeftNavLinks {
@@ -45,9 +45,18 @@ export class LeftMenuComponent {
   treeControl = new NestedTreeControl<LeftNavLinks>(node => node.children);
   dataSource = new MatTreeNestedDataSource<LeftNavLinks>();
 
-  constructor() {
+  constructor(
+    private element: ElementRef
+  ) {
     this.dataSource.data = TREE_DATA;
+
   }
 
   hasChild = (_: number, node: LeftNavLinks) => !!node.children && node.children.length > 0;
+
+  @HostListener('mouseout', ['$event']) collapseAllNode = (event: MouseEvent) => {
+    if (!(this.element.nativeElement as HTMLElement).contains(event.relatedTarget as HTMLElement)) {
+      this.treeControl.collapseAll();
+    }
+  }
 }
