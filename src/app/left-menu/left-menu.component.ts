@@ -1,7 +1,6 @@
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { Router } from '@angular/router';
 
 interface LeftNavLinks {
   name: string;
@@ -51,7 +50,7 @@ export class LeftMenuComponent {
   treeControl = new NestedTreeControl<LeftNavLinks>(node => node.children);
   dataSource = new MatTreeNestedDataSource<LeftNavLinks>();
 
-  constructor(private element: ElementRef, private router: Router) {
+  constructor(private element: ElementRef) {
     this.dataSource.data = TREE_DATA;
   }
 
