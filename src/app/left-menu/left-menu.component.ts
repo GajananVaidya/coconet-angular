@@ -1,17 +1,20 @@
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { Router } from '@angular/router';
 
 interface LeftNavLinks {
   name: string;
   icon: string;
   children?: LeftNavLinks[];
+  path?: string;
 }
 
 const TREE_DATA: LeftNavLinks[] = [
   {
     name: 'Home',
-    icon: 'home'
+    icon: 'home',
+    path: '/login',
   },
 
   {
@@ -21,14 +24,17 @@ const TREE_DATA: LeftNavLinks[] = [
       {
         name: 'My Request',
         icon: 'list',
+        path: 'my-requests',
       }, {
         name: 'Awaiting my approvals',
         icon: 'list',
+        path: 'my-approval-requests',
       }
     ]
   },
   {
     name: 'Settings',
+    path: 'settings',
     icon: 'build'
   }
 ];
@@ -45,9 +51,15 @@ export class LeftMenuComponent {
   treeControl = new NestedTreeControl<LeftNavLinks>(node => node.children);
   dataSource = new MatTreeNestedDataSource<LeftNavLinks>();
 
-  constructor() {
+  constructor(private element: ElementRef, private router: Router) {
     this.dataSource.data = TREE_DATA;
   }
 
+  @HostListener('mouseout', ['$event'])
+  collapseAllNode = (event: MouseEvent) => {
+    if (!(this.element.nativeElement as HTMLElement).contains(event.relatedTarget as HTMLElement)) {
+      this.treeControl.collapseAll();
+    }
+  }
   hasChild = (_: number, node: LeftNavLinks) => !!node.children && node.children.length > 0;
 }
