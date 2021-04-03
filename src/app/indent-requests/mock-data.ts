@@ -10,7 +10,7 @@ export const IndentRequestList = [
       reasonOfReq: "For new joinee",
       natureOfReq: "N/A",
       tat: "N/A",
-      selected: false,
+      selected: true,
       productList: [
         {
           productName: "Dell Laptop",
