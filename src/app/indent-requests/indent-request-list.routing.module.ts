@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { IndentRequestListComponent } from './indent-request-list.component';
 import { RequestDetailsComponent } from './request-details';
+import { RequestDetailsService } from './request-details.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const routes: Routes = [
   {
@@ -23,9 +25,11 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     CommonModule
   ],
   declarations: [RequestDetailsComponent],
+  providers: [RequestDetailsService],
   exports: [RouterModule]
 })
 export class IndentRequestRoutingModule { }

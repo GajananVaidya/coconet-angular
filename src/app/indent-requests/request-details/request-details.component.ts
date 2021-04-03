@@ -1,47 +1,30 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RequestDetailsService } from '../request-details.service';
+import { IndentRequest } from '../types';
 
 @Component({
   selector: 'request-details',
   styleUrls: ['./request-details.component.scss'],
   templateUrl: './request-details.component.html'
 })
-export class RequestDetailsComponent {
-  constructor(private route: ActivatedRoute) { }
-  selectedRreq = {
-    reqCode: 101,
-    empName: "Shekhar Surve",
-    empCode: "C011",
-    department: "Account",
-    createdDate: "12/12/2020",
-    createdTime: "10:40 AM",
-    status: "pending",
-    reasonOfReq: "For new joinee",
-    natureOfReq: "N/A",
-    tat: "N/A",
-    selected: true,
-    productList: [
-      {
-        productName: "Dell Laptop",
-        uom: "NOS",
-        indentQty: 2,
-        doc: "",
-        estimateRate: 25000,
-        estimatePrice: 50000
-      },
-      {
-        productName: "Lenovo Laptop",
-        uom: "NOS",
-        indentQty: 1,
-        doc: "",
-        estimateRate: 25000,
-        estimatePrice: 25000
-      }
-    ]
-  };
+export class RequestDetailsComponent implements OnInit {
+  constructor(private route: ActivatedRoute, private requestDetailsService: RequestDetailsService, private cdr: ChangeDetectorRef) { }
   reqStatus = "approve";
+  loading = true;
+  selectedIndentRequest: IndentRequest;
   isInfo = false;
-  showInfo(event) {
+  ngOnInit() {
+    this.route.paramMap.subscribe(param => {
+      const selectedIndentRequest = param.get('id');
+      this.loading = true;
+      setTimeout(() => {
+        this.selectedIndentRequest = this.requestDetailsService.getRequestById(Number(selectedIndentRequest));
+        this.loading = false;
+      }, 5000);
+    });
+  }
+  showInfo(event: MouseEvent) {
     this.isInfo = true;
     let left = event.pageX + 15;
     let top = event.pageY - 34;

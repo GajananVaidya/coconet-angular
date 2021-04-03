@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IndentRequestList } from './mock-data';
+import { RequestDetailsService } from './request-details.service';
 import { IndentRequest } from './types';
 
 @Component({
@@ -10,10 +10,12 @@ import { IndentRequest } from './types';
 })
 export class IndentRequestListComponent implements OnInit {
   isCollapsed = false;
-  reqList: IndentRequest[] = IndentRequestList;
-  private selectedReq: IndentRequest = this.reqList[0];
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  reqList: IndentRequest[];
+  selectedReq: IndentRequest;
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private requestDetailsService: RequestDetailsService) { }
   ngOnInit(): void {
+    this.reqList = this.requestDetailsService.getAllRequests();
+    this.selectedReq = this.reqList[0];
     this.router.navigate(['view', this.reqList[0].reqCode], { relativeTo: this.activatedRoute });
   }
   selectReq(req: IndentRequest) {
