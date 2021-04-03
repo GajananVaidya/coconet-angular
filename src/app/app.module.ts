@@ -1,25 +1,45 @@
 import { NgModule } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppHeaderModule } from './header';
-import { IndentRequestListComponent } from './indent-request-list/indent-request-list.component';
-import { LeftMenuModule } from './left-menu';
 import { AuthGuardService, AuthService } from './service';
+import { LeftMenuComponent } from './left-menu';
+import { HeaderComponent } from './header';
+import { SharedModule } from './shared';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTreeModule } from '@angular/material/tree';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginFormComponent } from './login';
 
+const CommonModules = [
+  MatButtonModule,
+  MatIconModule,
+  MatTreeModule,
+  RouterModule,
+  MatMenuModule,
+  FormsModule,
+  ReactiveFormsModule,
+  MatFormFieldModule,
+  BrowserAnimationsModule
+]
 @NgModule({
   declarations: [
     AppComponent,
-    IndentRequestListComponent,
+    LeftMenuComponent,
+    LoginFormComponent,
+    HeaderComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
-    AppRoutingModule,
-    AppHeaderModule,
-    LeftMenuModule
+    AppRoutingModule
   ],
-  providers: [MatIconRegistry, AuthGuardService, AuthService],
+  providers: [AuthGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

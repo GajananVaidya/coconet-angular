@@ -1,13 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-indent-request-list',
-  templateUrl: './indent-request-list.component.html',
-  styleUrls: ['./indent-request-list.component.scss']
-})
-export class IndentRequestListComponent implements OnInit {
-  iscollapsed = false;
-  reqList = [
+export const IndentRequestList = [
     {
       reqCode: 101,
       empName: "Shekhar Surve",
@@ -124,27 +115,3 @@ export class IndentRequestListComponent implements OnInit {
       ]
     }
   ];
-  selectedRreq;
-  reqStatus = "approve";
-  isInfo = false;
-  constructor() { }
-
-  ngOnInit(): void {
-    this.reqList[0].selected = true;
-    this.selectedRreq = this.reqList[0];
-  }
-
-  selectreq(req) {
-    this.reqList.forEach(el => el.selected = false);
-    req.selected = true;
-    this.selectedRreq = req;
-  }
-
-  showInfo(event) {
-    this.isInfo = true;
-    let left = event.pageX + 15;
-    let top = event.pageY - 34;
-    document.getElementById("desc-tooltip1").style.top = top + "px";
-    document.getElementById("desc-tooltip1").style.left = left + "px";
-  }
-}

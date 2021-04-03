@@ -13,7 +13,7 @@ const TREE_DATA: LeftNavLinks[] = [
   {
     name: 'Home',
     icon: 'home',
-    path: '/login',
+    path: '/logout',
   },
 
   {

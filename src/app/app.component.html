@@ -1,9 +1,7 @@
 <div>
   <app-header *ngIf='isLoggedIn$ | async'></app-header>
   <div class="main-body-wrapper">
-
     <app-left-menu *ngIf='isLoggedIn$ | async'></app-left-menu>
-
     <div class="work-space-wrapper">
       <router-outlet></router-outlet>
     </div>
