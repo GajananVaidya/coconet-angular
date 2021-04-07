@@ -2,9 +2,9 @@
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
     <!-- This is the tree node template for leaf nodes -->
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-      <li class="mat-tree-node" [routerLink]="node.path">
+      <li class="mat-tree-node" [routerLink]="node.path" [queryParams]="node.queryParams">
         <!-- use a disabled button to provide padding for tree leaf -->
-        <button [routerLink]="node.path" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+        <button [routerLink]="node.path" [queryParams]="node.queryParams" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
           <mat-icon>{{node.icon}}</mat-icon>
         </button>
         <span class="menu-title">{{node.name}}</span>

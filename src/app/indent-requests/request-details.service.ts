@@ -7,7 +7,4 @@ export class RequestDetailsService {
     getAllRequests() {
         return IndentRequestList; 
     }
-    getRequestById(id: number) {
-        return IndentRequestList.find(x=> x.reqCode === id);
-    }
 }

@@ -1,6 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { RequestDetailsService } from '../request-details.service';
+import { Component, Input } from '@angular/core';
 import { IndentRequest } from '../types';
 
 @Component({
@@ -8,22 +6,11 @@ import { IndentRequest } from '../types';
   styleUrls: ['./request-details.component.scss'],
   templateUrl: './request-details.component.html'
 })
-export class RequestDetailsComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private requestDetailsService: RequestDetailsService, private cdr: ChangeDetectorRef) { }
+export class RequestDetailsComponent {
+  @Input() selectedIndentRequest: IndentRequest;
   reqStatus = "approve";
   loading = true;
-  selectedIndentRequest: IndentRequest;
   isInfo = false;
-  ngOnInit() {
-    this.route.paramMap.subscribe(param => {
-      const selectedIndentRequest = param.get('id');
-      this.loading = true;
-      setTimeout(() => {
-        this.selectedIndentRequest = this.requestDetailsService.getRequestById(Number(selectedIndentRequest));
-        this.loading = false;
-      }, 5000);
-    });
-  }
   showInfo(event: MouseEvent) {
     this.isInfo = true;
     let left = event.pageX + 15;

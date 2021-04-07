@@ -7,6 +7,7 @@ interface LeftNavLinks {
   icon: string;
   children?: LeftNavLinks[];
   path?: string;
+  queryParams?: Object;
 }
 
 const TREE_DATA: LeftNavLinks[] = [
@@ -23,11 +24,18 @@ const TREE_DATA: LeftNavLinks[] = [
       {
         name: 'My Request',
         icon: 'list',
-        path: 'my-requests',
+        path: 'indent-requests',
+        queryParams: { self: true }
       }, {
         name: 'Awaiting my approvals',
         icon: 'list',
         path: 'my-approval-requests',
+        queryParams: { status: 'pending' }
+      }, {
+        name: 'Create new request',
+        icon: 'list',
+        path: 'indent-requests/create',
+        queryParams: { status: 'pending' }
       }
     ]
   },

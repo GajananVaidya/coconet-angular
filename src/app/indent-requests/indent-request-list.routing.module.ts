@@ -1,22 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
-import { IndentRequestListComponent } from './indent-request-list.component';
-import { RequestDetailsComponent } from './request-details';
-import { RequestDetailsService } from './request-details.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RouterModule, Routes } from '@angular/router';
+import { CreateIndentRequestComponent } from './create-request';
+import { IndentRequestListComponent } from './indent-request-list.component';
+import { RequestDetailsService } from './request-details.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: IndentRequestListComponent,
-    children: [
-      {
-        path: 'view/:id',
-        component: RequestDetailsComponent
-      }
-    ]
+    pathMatch: 'full',
+    component: IndentRequestListComponent
+  },
+  {
+    path: 'create',
+    component: CreateIndentRequestComponent
   }
 ];
 
@@ -28,7 +27,6 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     CommonModule
   ],
-  declarations: [RequestDetailsComponent],
   providers: [RequestDetailsService],
   exports: [RouterModule]
 })
