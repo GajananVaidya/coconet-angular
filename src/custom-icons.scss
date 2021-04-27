@@ -26,6 +26,30 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-delete:before {
+    content: "\e91e";
+}
+.icon-edit:before {
+    content: "\e91f";
+}
+.icon-form-calendar:before {
+    content: "\e920";
+}
+.icon-form-search:before {
+    content: "\e921";
+}
+.icon-chat-close:before {
+    content: "\e922";
+}
+.icon-chat-message:before {
+    content: "\e923";
+}
+.icon-chat-send:before {
+    content: "\e924";
+}
+.icon-upload:before {
+    content: "\e91d";
+}
 .icon-accordian-arrow:before {
     content: "\e900";
 }

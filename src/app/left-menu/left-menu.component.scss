@@ -21,7 +21,8 @@
                     button {
                         outline: none;
                     }
-                    .menu-title {
+                    .menu-title,
+                    .expand-icon {
                         display: none;
                     }
                 }
@@ -43,6 +44,9 @@
                             display: block;
                             font-size: 13px;
                             flex: 1;
+                        }
+                        .expand-icon {
+                            display: block;
                         }
                     }
                 }

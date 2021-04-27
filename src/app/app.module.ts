@@ -32,7 +32,7 @@ const CommonModules = [
     AppComponent,
     LeftMenuComponent,
     LoginFormComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     SharedModule,

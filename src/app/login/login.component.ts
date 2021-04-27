@@ -17,7 +17,8 @@ export class LoginFormComponent {
   submit() {
     if (this.form.valid) {
       this.authSvc.login(this.form.value);
-      this.router.navigateByUrl('indent-requests');
+      this.router.navigateByUrl('indent-requests/create');
+      // this.router.navigateByUrl('indent-requests');
     }
   }
 }

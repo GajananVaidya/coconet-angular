@@ -15,11 +15,13 @@
     }
 }
 .info-wrapper {
-    border: 1px solid #ccc;
-    background: #f1f9fc;
+    background-color: #f1f9fc;
+    background-image: url("../../../assets/img/rhs-details-bg.png");
     border: 1px solid #dae9f0;
     border-radius: 5px;
     margin-bottom: 25px;
+    background-repeat: no-repeat;
+    background-position: right bottom;
     .top {
         padding: 15px;
         border-bottom: 1px solid #dce5ea;
